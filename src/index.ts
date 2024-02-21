@@ -4,13 +4,14 @@
  * connects the app shell to the React application(s) that make up this
  * microfrontend.
  */
-import { getAsyncLifecycle, defineConfigSchema } from "@openmrs/esm-framework";
+import { getAsyncLifecycle, defineConfigSchema, getSyncLifecycle } from "@openmrs/esm-framework";
 import { configSchema } from "./config-schema";
+import { createLeftPanelLink } from "./left-panel-link.component";
 
-const moduleName = "@openmrs/esm-template-app";
+const moduleName = "@amrs/esm-reports-app";
 
 const options = {
-  featureName: "root-world",
+  featureName: "reports",
   moduleName,
 };
 
@@ -62,5 +63,14 @@ export const blueBox = getAsyncLifecycle(
 
 export const brandBox = getAsyncLifecycle(
   () => import("./boxes/extensions/brand-box.component"),
+  options
+);
+ export const rootRouter = getAsyncLifecycle(()=> import("./root-router.component"),options)
+//  export const routLink = getAsyncLifecycle(createLeftPanelLink({name: "reports", title: "Reports"}), options);
+export const routeLink  = getSyncLifecycle(
+  createLeftPanelLink({
+    name: "reports",
+    title: "Reports"
+  }),
   options
 );

@@ -6,25 +6,22 @@
   },
   "extensions": [
     {
-      "name": "Red box",
-      "component": "redBox",
-      "slot": "Boxes"
+      "component": "routeLink",
+      "name": "reports-dashboard-link",
+      "slot": "homepage-dashboard-slot",
+      "meta": {
+        "name": "reports",
+        "title": "Reports",
+        "slot": "reports-dashboard-slot"
+      }
     },
     {
-      "name": "Blue box",
-      "component": "blueBox",
-      "slot": "Boxes"
-    },
-        {
-      "name": "Brand box",
-      "component": "blueBox",
-      "slot": "Boxes"
+      "component": "rootRouter",
+      "name": "reports-dashboard-root",
+      "slot": "reports-dashboard-slot"
     }
   ],
   "pages": [
-    {
-      "component": "root",
-      "route": "root"
-    }
+   
   ]
 }
